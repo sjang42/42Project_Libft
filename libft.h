@@ -95,5 +95,7 @@ void				ft_list_push_back(t_list **begin_list,
 					void const *content, size_t content_size);
 int					ft_list_size(t_list *begin_list);
 void				ft_lstaddback(t_list **alst, t_list *newlst);
+int					ft_lstcount(t_list *head);
+void				*ft_lstnthdata(t_list *head, int nth);
 
 #endif

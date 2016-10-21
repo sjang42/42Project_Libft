@@ -24,7 +24,7 @@ OBJECTS =	ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
 			ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o ft_strstr.o\
 			ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o\
 			ft_sqrt.o ft_iterative_power.o ft_fibonacci.o ft_list_push_back.o\
-			ft_list_size.o ft_lstaddback.o
+			ft_list_size.o ft_lstaddback.o ft_lstcount.o ft_lstnthdata.o
 SRC = ./
 ICL = ./
 CC = gcc
@@ -169,7 +169,10 @@ ft_list_size.o : $(SRC)ft_list_size.c $(ICL)libft.h
 	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_list_size.c
 ft_lstaddback.o : $(SRC)ft_lstaddback.c $(ICL)libft.h
 	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstaddback.c
-
+ft_lstcount.o : $(SRC)ft_lstcount.c $(ICL)libft.h
+	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstcount.c
+ft_lstnthdata.o : $(SRC)ft_lstnthdata.c $(ICL)libft.h
+	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstnthdata.c
 
 clean :
 	$(RM) $(OBJECTS)
