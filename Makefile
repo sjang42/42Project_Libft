@@ -34,145 +34,80 @@ RLIB = ranlib
 RM = /bin/rm -f
 
 .PHONY : clean fclean re
+.SUFFIXES				:	.c .o
 
-all : $(TARGET)
+all						:	$(TARGET)
 
-$(TARGET) : $(OBJECTS)
-	$(AR) $(TARGET) $(OBJECTS)
-	$(RLIB) $(TARGET)
+$(TARGET)				:	$(OBJECTS) $(LIBFT_ICL)libft.h
+							$(AR) $(TARGET) $(OBJECTS)
+							$(RLIB) $(TARGET)
 
-ft_atoi.o : $(SRC)ft_atoi.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_atoi.c
-ft_bzero.o : $(SRC)ft_bzero.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_bzero.c
-ft_isalnum.o : $(SRC)ft_isalnum.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_isalnum.c
-ft_isalpha.o : $(SRC)ft_isalpha.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_isalpha.c
-ft_isascii.o : $(SRC)ft_isascii.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_isascii.c
-ft_isdigit.o : $(SRC)ft_isdigit.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_isdigit.c
-ft_isprint.o : $(SRC)ft_isprint.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_isprint.c
-ft_itoa.o : $(SRC)ft_itoa.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_itoa.c
-ft_lstadd.o : $(SRC)ft_lstadd.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstadd.c
-ft_lstdel.o : $(SRC)ft_lstdel.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstdel.c
-ft_lstdelone.o : $(SRC)ft_lstdelone.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstdelone.c
-ft_lstiter.o : $(SRC)ft_lstiter.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstiter.c
-ft_lstmap.o : $(SRC)ft_lstmap.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstmap.c
-ft_lstnew.o : $(SRC)ft_lstnew.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstnew.c
-ft_memalloc.o : $(SRC)ft_memalloc.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memalloc.c
-ft_memccpy.o : $(SRC)ft_memccpy.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memccpy.c
-ft_memchr.o : $(SRC)ft_memchr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memchr.c
-ft_memcmp.o : $(SRC)ft_memcmp.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memcmp.c
-ft_memcpy.o : $(SRC)ft_memcpy.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memcpy.c
-ft_memdel.o : $(SRC)ft_memdel.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memdel.c
-ft_memmove.o : $(SRC)ft_memmove.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memmove.c
-ft_memset.o : $(SRC)ft_memset.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_memset.c
-ft_putchar.o : $(SRC)ft_putchar.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putchar.c
-ft_putchar_fd.o : $(SRC)ft_putchar_fd.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putchar_fd.c
-ft_putendl.o : $(SRC)ft_putendl.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putendl.c
-ft_putendl_fd.o : $(SRC)ft_putendl_fd.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putendl_fd.c
-ft_putnbr.o : $(SRC)ft_putnbr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putnbr.c
-ft_putnbr_fd.o : $(SRC)ft_putnbr_fd.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putnbr_fd.c
-ft_putstr.o : $(SRC)ft_putstr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putstr.c
-ft_putstr_fd.o : $(SRC)ft_putstr_fd.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_putstr_fd.c
-ft_strcat.o : $(SRC)ft_strcat.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strcat.c
-ft_strchr.o : $(SRC)ft_strchr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strchr.c
-ft_strclr.o : $(SRC)ft_strclr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strclr.c
-ft_strcmp.o : $(SRC)ft_strcmp.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strcmp.c
-ft_strcpy.o : $(SRC)ft_strcpy.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strcpy.c
-ft_strdel.o : $(SRC)ft_strdel.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strdel.c
-ft_strdup.o : $(SRC)ft_strdup.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strdup.c
-ft_strequ.o : $(SRC)ft_strequ.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strequ.c
-ft_striter.o : $(SRC)ft_striter.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_striter.c
-ft_striteri.o : $(SRC)ft_striteri.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_striteri.c
-ft_strjoin.o : $(SRC)ft_strjoin.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strjoin.c
-ft_strlcat.o : $(SRC)ft_strlcat.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strlcat.c
-ft_strlen.o : $(SRC)ft_strlen.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strlen.c
-ft_strmap.o : $(SRC)ft_strmap.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strmap.c
-ft_strmapi.o : $(SRC)ft_strmapi.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strmapi.c
-ft_strncat.o : $(SRC)ft_strncat.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strncat.c
-ft_strncmp.o : $(SRC)ft_strncmp.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strncmp.c
-ft_strncpy.o : $(SRC)ft_strncpy.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strncpy.c
-ft_strnequ.o : $(SRC)ft_strnequ.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strnequ.c
-ft_strnew.o : $(SRC)ft_strnew.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strnew.c
-ft_strnstr.o : $(SRC)ft_strnstr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strnstr.c
-ft_strrchr.o : $(SRC)ft_strrchr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strrchr.c
-ft_strsplit.o : $(SRC)ft_strsplit.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strsplit.c
-ft_strstr.o : $(SRC)ft_strstr.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strstr.c
-ft_strsub.o : $(SRC)ft_strsub.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strsub.c
-ft_strtrim.o : $(SRC)ft_strtrim.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_strtrim.c
-ft_tolower.o : $(SRC)ft_tolower.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_tolower.c
-ft_toupper.o : $(SRC)ft_toupper.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_toupper.c
-ft_sqrt.o : $(SRC)ft_sqrt.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_sqrt.c
-ft_iterative_power.o : $(SRC)ft_iterative_power.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_iterative_power.c
-ft_fibonacci.o : $(SRC)ft_fibonacci.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_fibonacci.c
-ft_list_push_back.o : $(SRC)ft_list_push_back.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_list_push_back.c
-ft_list_size.o : $(SRC)ft_list_size.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_list_size.c
-ft_lstaddback.o : $(SRC)ft_lstaddback.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstaddback.c
-ft_lstcount.o : $(SRC)ft_lstcount.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstcount.c
-ft_lstnthdata.o : $(SRC)ft_lstnthdata.c $(ICL)libft.h
-	$(CC) $(CFLAG) -I$(ICL) $(SRC)ft_lstnthdata.c
+ft_atoi.o				:	$(LIBFT_SRC)ft_atoi.c $(LIBFT_ICL)libft.h
+ft_bzero.o				:	$(LIBFT_SRC)ft_bzero.c $(LIBFT_ICL)libft.h
+ft_isalnum.o			:	$(LIBFT_SRC)ft_isalnum.c $(LIBFT_ICL)libft.h
+ft_isalpha.o			:	$(LIBFT_SRC)ft_isalpha.c $(LIBFT_ICL)libft.h
+ft_isascii.o			:	$(LIBFT_SRC)ft_isascii.c $(LIBFT_ICL)libft.h
+ft_isdigit.o			:	$(LIBFT_SRC)ft_isdigit.c $(LIBFT_ICL)libft.h
+ft_isprint.o			:	$(LIBFT_SRC)ft_isprint.c $(LIBFT_ICL)libft.h
+ft_itoa.o				:	$(LIBFT_SRC)ft_itoa.c $(LIBFT_ICL)libft.h
+ft_lstadd.o				:	$(LIBFT_SRC)ft_lstadd.c $(LIBFT_ICL)libft.h
+ft_lstdel.o				:	$(LIBFT_SRC)ft_lstdel.c $(LIBFT_ICL)libft.h
+ft_lstdelone.o			:	$(LIBFT_SRC)ft_lstdelone.c $(LIBFT_ICL)libft.h
+ft_lstiter.o			:	$(LIBFT_SRC)ft_lstiter.c $(LIBFT_ICL)libft.h
+ft_lstmap.o				:	$(LIBFT_SRC)ft_lstmap.c $(LIBFT_ICL)libft.h
+ft_lstnew.o				:	$(LIBFT_SRC)ft_lstnew.c $(LIBFT_ICL)libft.h
+ft_memalloc.o			:	$(LIBFT_SRC)ft_memalloc.c $(LIBFT_ICL)libft.h
+ft_memccpy.o			:	$(LIBFT_SRC)ft_memccpy.c $(LIBFT_ICL)libft.h
+ft_memchr.o				:	$(LIBFT_SRC)ft_memchr.c $(LIBFT_ICL)libft.h
+ft_memcmp.o				:	$(LIBFT_SRC)ft_memcmp.c $(LIBFT_ICL)libft.h
+ft_memcpy.o				:	$(LIBFT_SRC)ft_memcpy.c $(LIBFT_ICL)libft.h
+ft_memdel.o				:	$(LIBFT_SRC)ft_memdel.c $(LIBFT_ICL)libft.h
+ft_memmove.o			:	$(LIBFT_SRC)ft_memmove.c $(LIBFT_ICL)libft.h
+ft_memset.o				:	$(LIBFT_SRC)ft_memset.c $(LIBFT_ICL)libft.h
+ft_putchar.o			:	$(LIBFT_SRC)ft_putchar.c $(LIBFT_ICL)libft.h
+ft_putchar_fd.o			:	$(LIBFT_SRC)ft_putchar_fd.c $(LIBFT_ICL)libft.h
+ft_putendl.o			:	$(LIBFT_SRC)ft_putendl.c $(LIBFT_ICL)libft.h
+ft_putendl_fd.o			:	$(LIBFT_SRC)ft_putendl_fd.c $(LIBFT_ICL)libft.h
+ft_putnbr.o				:	$(LIBFT_SRC)ft_putnbr.c $(LIBFT_ICL)libft.h
+ft_putnbr_fd.o			:	$(LIBFT_SRC)ft_putnbr_fd.c $(LIBFT_ICL)libft.h
+ft_putstr.o				:	$(LIBFT_SRC)ft_putstr.c $(LIBFT_ICL)libft.h
+ft_putstr_fd.o			:	$(LIBFT_SRC)ft_putstr_fd.c $(LIBFT_ICL)libft.h
+ft_strcat.o				:	$(LIBFT_SRC)ft_strcat.c $(LIBFT_ICL)libft.h
+ft_strchr.o				:	$(LIBFT_SRC)ft_strchr.c $(LIBFT_ICL)libft.h
+ft_strclr.o				:	$(LIBFT_SRC)ft_strclr.c $(LIBFT_ICL)libft.h
+ft_strcmp.o				:	$(LIBFT_SRC)ft_strcmp.c $(LIBFT_ICL)libft.h
+ft_strcpy.o				:	$(LIBFT_SRC)ft_strcpy.c $(LIBFT_ICL)libft.h
+ft_strdel.o				:	$(LIBFT_SRC)ft_strdel.c $(LIBFT_ICL)libft.h
+ft_strdup.o				:	$(LIBFT_SRC)ft_strdup.c $(LIBFT_ICL)libft.h
+ft_strequ.o				:	$(LIBFT_SRC)ft_strequ.c $(LIBFT_ICL)libft.h
+ft_striter.o			:	$(LIBFT_SRC)ft_striter.c $(LIBFT_ICL)libft.h
+ft_striteri.o			:	$(LIBFT_SRC)ft_striteri.c $(LIBFT_ICL)libft.h
+ft_strjoin.o			:	$(LIBFT_SRC)ft_strjoin.c $(LIBFT_ICL)libft.h
+ft_strlcat.o			:	$(LIBFT_SRC)ft_strlcat.c $(LIBFT_ICL)libft.h
+ft_strlen.o				:	$(LIBFT_SRC)ft_strlen.c $(LIBFT_ICL)libft.h
+ft_strmap.o				:	$(LIBFT_SRC)ft_strmap.c $(LIBFT_ICL)libft.h
+ft_strmapi.o			:	$(LIBFT_SRC)ft_strmapi.c $(LIBFT_ICL)libft.h
+ft_strncat.o			:	$(LIBFT_SRC)ft_strncat.c $(LIBFT_ICL)libft.h
+ft_strncmp.o			:	$(LIBFT_SRC)ft_strncmp.c $(LIBFT_ICL)libft.h
+ft_strncpy.o			:	$(LIBFT_SRC)ft_strncpy.c $(LIBFT_ICL)libft.h
+ft_strnequ.o			:	$(LIBFT_SRC)ft_strnequ.c $(LIBFT_ICL)libft.h
+ft_strnew.o				:	$(LIBFT_SRC)ft_strnew.c $(LIBFT_ICL)libft.h
+ft_strnstr.o			:	$(LIBFT_SRC)ft_strnstr.c $(LIBFT_ICL)libft.h
+ft_strrchr.o			:	$(LIBFT_SRC)ft_strrchr.c $(LIBFT_ICL)libft.h
+ft_strsplit.o			:	$(LIBFT_SRC)ft_strsplit.c $(LIBFT_ICL)libft.h
+ft_strstr.o				:	$(LIBFT_SRC)ft_strstr.c $(LIBFT_ICL)libft.h
+ft_strsub.o				:	$(LIBFT_SRC)ft_strsub.c $(LIBFT_ICL)libft.h
+ft_strtrim.o			:	$(LIBFT_SRC)ft_strtrim.c $(LIBFT_ICL)libft.h
+ft_tolower.o			:	$(LIBFT_SRC)ft_tolower.c $(LIBFT_ICL)libft.h
+ft_toupper.o			:	$(LIBFT_SRC)ft_toupper.c $(LIBFT_ICL)libft.h
+ft_sqrt.o				:	$(LIBFT_SRC)ft_sqrt.c $(LIBFT_ICL)libft.h
+ft_iterative_power.o	:	$(LIBFT_SRC)ft_iterative_power.c $(LIBFT_ICL)libft.h
+ft_fibonacci.o			:	$(LIBFT_SRC)ft_fibonacci.c $(LIBFT_ICL)libft.h
+ft_list_push_back.o		:	$(LIBFT_SRC)ft_list_push_back.c $(LIBFT_ICL)libft.h
+ft_list_size.o			:	$(LIBFT_SRC)ft_list_size.c $(LIBFT_ICL)libft.h
+ft_lstaddback.o			:	$(LIBFT_SRC)ft_lstaddback.c $(LIBFT_ICL)libft.h
+ft_lstcount.o			:	$(LIBFT_SRC)ft_lstcount.c $(LIBFT_ICL)libft.h
+ft_lstnthdata.o			:	$(LIBFT_SRC)ft_lstnthdata.c $(LIBFT_ICL)libft.h
 
 clean :
 	$(RM) $(OBJECTS)
