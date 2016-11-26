@@ -50,6 +50,8 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *big, const char *little);
 
 int					ft_atoi(const char *str);
+long long			ft_atoll(const char *str);
+
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -100,5 +102,6 @@ void				ft_lstaddback(t_list **alst, t_list *newlst);
 int					ft_lstcount(t_list *head);
 void				*ft_lstnthdata(t_list *head, int nth);
 void				*ft_realloc(void *some, size_t size_cur, size_t size_fut);
+void				ft_exit_error(char *error);
 
 #endif

@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 TARGET					=	libft.a
-OBJECTS					=	ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
+OBJECTS					=	ft_atoi.o ft_atoll.o\
+							ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
 							ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd.o ft_lstdel.o\
 							ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_memalloc.o\
 							ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o\
@@ -25,7 +26,7 @@ OBJECTS					=	ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
 							ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o\
 							ft_sqrt.o ft_iterative_power.o ft_fibonacci.o ft_list_push_back.o\
 							ft_list_size.o ft_lstaddback.o ft_lstcount.o ft_lstnthdata.o\
-							get_next_line.o ft_realloc.o
+							get_next_line.o ft_realloc.o ft_exit_error.o
 SRC						=	./
 ICL						=	./
 CC						=	gcc
@@ -113,6 +114,9 @@ ft_lstcount.o			:	$(SRC)ft_lstcount.c $(ICL)libft.h
 ft_lstnthdata.o			:	$(SRC)ft_lstnthdata.c $(ICL)libft.h
 get_next_line.o			:	$(SRC)get_next_line.c $(ICL)libft.h $(ICL)get_next_line.h
 ft_realloc.o			:	$(SRC)ft_realloc.c $(ICL)libft.h
+ft_exit_error.o			:	$(SRC)ft_exit_error.c $(ICL)libft.h
+ft_atoll.o				:	$(SRC)ft_atoll.c $(ICL)libft.h
+
 clean :
 	$(RM) $(OBJECTS)
 fclean : clean
