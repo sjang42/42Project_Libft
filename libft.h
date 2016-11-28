@@ -24,6 +24,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+# include "get_next_line.h"
+
 void				ft_bzero(void *s, size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -48,6 +50,8 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *big, const char *little);
 
 int					ft_atoi(const char *str);
+long long			ft_atoll(const char *str);
+
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -97,5 +101,7 @@ int					ft_list_size(t_list *begin_list);
 void				ft_lstaddback(t_list **alst, t_list *newlst);
 int					ft_lstcount(t_list *head);
 void				*ft_lstnthdata(t_list *head, int nth);
+void				*ft_realloc(void *some, size_t size_cur, size_t size_fut);
+void				ft_exit_error(char *error);
 
 #endif
