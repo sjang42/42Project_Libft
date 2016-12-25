@@ -14,8 +14,8 @@
 
 int		ft_lstcount(t_list *head)
 {
-	int count;
-	t_list *cur;
+	int		count;
+	t_list	*cur;
 
 	count = 0;
 	cur = head;

@@ -23,4 +23,3 @@ void	ft_exit_error(char *error)
 	ft_putstr("\n");
 	exit(-1);
 }
-
