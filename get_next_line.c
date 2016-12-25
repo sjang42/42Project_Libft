@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 int			ft_read_all(const int fd, char **str, int size, int sizeall)
 {
@@ -19,7 +19,7 @@ int			ft_read_all(const int fd, char **str, int size, int sizeall)
 
 	ft_bzero(arr, BUFF_SIZE + 1);
 	if ((*str = (char*)malloc(sizeof(char) * 1)) == NULL)
-		RETRUN_ERROR(-1);	
+		RETRUN_ERROR(-1);
 	while ((size = read(fd, arr, BUFF_SIZE)) != 0)
 	{
 		if (size == -1)

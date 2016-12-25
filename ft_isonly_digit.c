@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isonly_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/21 14:26:28 by sjang             #+#    #+#             */
-/*   Updated: 2016/10/21 14:26:29 by sjang            ###   ########.fr       */
+/*   Created: 2016/12/24 19:01:10 by sjang             #+#    #+#             */
+/*   Updated: 2016/12/24 19:01:11 by sjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft.h"
+int			ft_isonly_digit(const char *str)
+{
+	int i;
 
-# define BUFF_SIZE 42
-# define RETRUN_ERROR(x) return (x)
-# define MALLOC_CHECK(x) if ((x) == NULL) {return (NULL);}
-
-int					get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}

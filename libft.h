@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "get_next_line.h"
+# include "stack.h"
 
 typedef struct		s_list
 {
@@ -24,7 +26,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-# include "get_next_line.h"
+typedef struct		s_lists
+{
+	t_list			*head;
+	int				fd;
+	int				nth;
+	struct s_lists	*next;
+}					t_lists;
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -67,7 +75,7 @@ void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr(int n);
+int					ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(char const *s);
 void				ft_putstr_fd(char const *s, int fd);
@@ -101,7 +109,11 @@ int					ft_list_size(t_list *begin_list);
 void				ft_lstaddback(t_list **alst, t_list *newlst);
 int					ft_lstcount(t_list *head);
 void				*ft_lstnthdata(t_list *head, int nth);
+
 void				*ft_realloc(void *some, size_t size_cur, size_t size_fut);
 void				ft_exit_error(char *error);
+int					ft_isint(long long n);
+int					ft_isonly_digit(const char *str);
+int					ft_digitcount(int nb);
 
 #endif
