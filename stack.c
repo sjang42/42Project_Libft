@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/stack.h"
 
 void		ft_stack_init(t_stack *pstack)
 {

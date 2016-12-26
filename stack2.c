@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/stack.h"
 
 t_sdata		ft_stack_peek(t_stack *pstack)
 {
