@@ -21,7 +21,7 @@
 #  define FALSE	0
 # endif
 
-# include "libft.h"
+# include <stdlib.h>
 
 typedef int				t_sdata;
 

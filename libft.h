@@ -13,10 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include "get_next_line.h"
 # include "stack.h"
 
 typedef struct		s_list
@@ -33,6 +33,13 @@ typedef struct		s_lists
 	int				nth;
 	struct s_lists	*next;
 }					t_lists;
+
+/*
+**					get_next_line
+*/
+# define BUFF_SIZE 42
+# define RETRUN_ERROR(x) return (x)
+# define MALLOC_CHECK(x) if ((x) == NULL) {return (NULL);}
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -115,5 +122,7 @@ void				ft_exit_error(char *error);
 int					ft_isint(long long n);
 int					ft_isonly_digit(const char *str);
 int					ft_digitcount(int nb);
+
+int					get_next_line(const int fd, char **line);
 
 #endif
