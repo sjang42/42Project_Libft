@@ -29,8 +29,9 @@ OBJECTS					=	ft_atoi.o ft_atoll.o\
 							get_next_line.o ft_realloc.o ft_exit_error.o\
 							ft_isint.o ft_isonly_digit.o ft_digitcount.o\
 							stack.o stack2.o
-SRC						=	./
-ICL						=	./
+							
+SRC						=	./src/
+ICL						=	./include/
 CC						=	gcc
 CFLAG					=	-Werror -Wall -Wextra -c
 AR						=	ar rc
@@ -45,7 +46,7 @@ $(TARGET)				:	$(OBJECTS) $(ICL)libft.h
 							$(AR) $(TARGET) $(OBJECTS)
 							$(RLIB) $(TARGET)
 
-.c.o					:
+%.o						:	$(SRC)%.c
 							$(CC) $(CFLAG) $<
 
 ft_atoi.o				:	$(SRC)ft_atoi.c $(ICL)libft.h
@@ -114,16 +115,15 @@ ft_list_size.o			:	$(SRC)ft_list_size.c $(ICL)libft.h
 ft_lstaddback.o			:	$(SRC)ft_lstaddback.c $(ICL)libft.h
 ft_lstcount.o			:	$(SRC)ft_lstcount.c $(ICL)libft.h
 ft_lstnthdata.o			:	$(SRC)ft_lstnthdata.c $(ICL)libft.h
-get_next_line.o			:	$(SRC)get_next_line.c $(ICL)libft.h $(ICL)get_next_line.h
+get_next_line.o			:	$(SRC)get_next_line.c $(ICL)libft.h
 ft_realloc.o			:	$(SRC)ft_realloc.c $(ICL)libft.h
 ft_exit_error.o			:	$(SRC)ft_exit_error.c $(ICL)libft.h
 ft_atoll.o				:	$(SRC)ft_atoll.c $(ICL)libft.h
 ft_isint.o				:	$(SRC)ft_isint.c $(ICL)libft.h
 ft_isonly_digit.o		:	$(SRC)ft_isonly_digit.c $(ICL)libft.h
 ft_digitcount.o			:	$(SRC)ft_digitcount.c $(ICL)libft.h
-stack.o					:	$(SRC)stack.c $(ICL)libft.h
-stack2.o				:	$(SRC)stack2.c $(ICL)libft.h
-
+stack.o					:	$(SRC)stack.c $(ICL)libft.h $(ICL)stack.h
+stack2.o				:	$(SRC)stack2.c $(ICL)libft.h $(ICL)stack.h
 clean :
 	$(RM) $(OBJECTS)
 fclean : clean
