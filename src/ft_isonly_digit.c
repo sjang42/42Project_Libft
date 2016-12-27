@@ -17,6 +17,8 @@ int			ft_isonly_digit(const char *str)
 	int i;
 
 	i = 0;
+	if (str[0] == '-' && ft_isdigit(str[1]))
+		i++;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
