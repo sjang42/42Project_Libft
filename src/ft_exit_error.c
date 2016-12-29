@@ -14,12 +14,12 @@
 
 void	ft_exit_error(char *error)
 {
-	ft_putstr("Error");
+	write(2, "Error", 5);
 	if (error)
 	{
-		ft_putstr(" : ");
-		ft_putstr(error);
+		write(2, " : ", 3);
+		write(2, error, ft_strlen(error));
 	}
-	ft_putstr("\n");
+	write(2, "\n", 1);
 	exit(-1);
 }
