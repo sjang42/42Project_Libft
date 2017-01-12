@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include <libft.h>
 
 int			ft_read_all(const int fd, char **str, int size, int sizeall)
 {

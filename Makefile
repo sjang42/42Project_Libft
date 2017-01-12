@@ -47,7 +47,7 @@ $(TARGET)				:	$(OBJECTS) $(ICL)libft.h
 							$(RLIB) $(TARGET)
 
 %.o						:	$(SRC)%.c
-							$(CC) $(CFLAG) $<
+							$(CC) $(CFLAG) $< -I./include/
 
 ft_atoi.o				:	$(SRC)ft_atoi.c $(ICL)libft.h
 ft_bzero.o				:	$(SRC)ft_bzero.c $(ICL)libft.h
