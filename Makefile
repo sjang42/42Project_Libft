@@ -28,7 +28,9 @@ OBJECTS					=	ft_atoi.o ft_atoll.o\
 							ft_list_size.o ft_lstaddback.o ft_lstcount.o ft_lstnthdata.o\
 							get_next_line.o ft_realloc.o ft_exit_error.o\
 							ft_isint.o ft_isonly_digit.o ft_digitcount.o\
-							stack.o stack2.o
+							ft_count_strch.o ft_destroy_strsplit.o\
+							stack.o stack2.o\
+							graph.o graph_show.o
 							
 SRC						=	./src/
 ICL						=	./include/
@@ -124,6 +126,11 @@ ft_isonly_digit.o		:	$(SRC)ft_isonly_digit.c $(ICL)libft.h
 ft_digitcount.o			:	$(SRC)ft_digitcount.c $(ICL)libft.h
 stack.o					:	$(SRC)stack.c $(ICL)libft.h $(ICL)stack.h
 stack2.o				:	$(SRC)stack2.c $(ICL)libft.h $(ICL)stack.h
+graph.o					:	$(SRC)graph.c $(ICL)libft.h $(ICL)graph.h
+graph_show.o			:	$(SRC)graph_show.c $(ICL)libft.h $(ICL)graph.h
+ft_count_strch.o		:	$(SRC)ft_count_strch.c $(ICL)libft.h
+ft_destroy_strsplit.o	:	$(SRC)ft_destroy_strsplit.c $(ICL)libft.h
+
 clean :
 	$(RM) $(OBJECTS)
 fclean : clean

@@ -18,6 +18,7 @@
 # include <string.h>
 # include <unistd.h>
 # include "stack.h"
+# include "graph.h"
 
 typedef struct		s_list
 {
@@ -97,6 +98,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);
 char				**ft_strsplit(char const *s, char c);
+void				ft_destroy_strsplit(char **str);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 
@@ -123,6 +125,9 @@ int					ft_isint(long long n);
 int					ft_isonly_digit(const char *str);
 int					ft_digitcount(int nb);
 
+int					ft_count_strch(char *s, char c);
 int					get_next_line(const int fd, char **line);
+
+void				graph_show(t_graph *pg);
 
 #endif
