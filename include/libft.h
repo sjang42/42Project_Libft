@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include "stack.h"
-# include "graph.h"
+# include <graph.h>
+# include <stack.h>
 
 typedef struct		s_list
 {
