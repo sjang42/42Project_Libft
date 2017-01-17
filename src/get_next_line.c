@@ -12,31 +12,6 @@
 
 #include <libft.h>
 
-int			ft_read_all(const int fd, char **str, int size, int sizeall)
-{
-	char	*temp;
-	char	arr[BUFF_SIZE + 1];
-
-	ft_bzero(arr, BUFF_SIZE + 1);
-	if ((*str = (char*)malloc(sizeof(char) * 1)) == NULL)
-		RETRUN_ERROR(-1);
-	while ((size = read(fd, arr, BUFF_SIZE)) != 0)
-	{
-		if (size == -1)
-			RETRUN_ERROR(-1);
-		temp = (char*)malloc(sizeof(char) * (sizeall + 1));
-		ft_memcpy(temp, *str, sizeall);
-		free(*str);
-		*str = (char*)malloc(sizeof(char) * (sizeall + size + 1));
-		ft_memcpy(*str, temp, sizeall);
-		ft_memcpy(*str + sizeall, arr, size);
-		(*str)[sizeall + size] = 0;
-		free(temp);
-		sizeall += size;
-	}
-	return (sizeall);
-}
-
 void		ft_store_str(t_list *head, char *str)
 {
 	size_t	stapos;
@@ -64,12 +39,13 @@ void		ft_store_str(t_list *head, char *str)
 	}
 }
 
-t_lists		*ft_get_curx(t_lists **lists, const int fd, t_lists *cur)
+t_lists		*ft_get_curx(t_lists **lists, const int fd)
 {
+	t_lists *cur;
+
 	if ((*lists) == NULL)
 	{
 		(*lists) = (t_lists*)malloc(sizeof(t_lists));
-		MALLOC_CHECK(*lists);
 		(*lists)->head = ft_lstnew(NULL, 0);
 		(*lists)->fd = fd;
 		(*lists)->nth = 0;
@@ -81,7 +57,6 @@ t_lists		*ft_get_curx(t_lists **lists, const int fd, t_lists *cur)
 		if (cur->next == NULL)
 		{
 			cur->next = (t_lists*)malloc(sizeof(t_lists));
-			MALLOC_CHECK(cur->next);
 			cur->next->head = ft_lstnew(NULL, 0);
 			cur->next->fd = fd;
 			cur->next->nth = 0;
@@ -92,6 +67,41 @@ t_lists		*ft_get_curx(t_lists **lists, const int fd, t_lists *cur)
 	return (cur);
 }
 
+void		del_list(t_list *head)
+{
+	t_list *cur;
+	t_list *tmp;
+
+	cur = head;
+	while (cur->next)
+	{
+		tmp = cur->next;
+		free(cur);
+		cur = tmp;
+	}
+	free(cur);
+}
+
+void		del_fd(t_lists *lst, int fd)
+{
+	t_lists *cur;
+	t_lists *before;
+
+	cur = lst;
+	before = cur;
+	while (cur != NULL && cur->fd != fd)
+	{
+		before = cur;
+		cur = cur->next;
+	}
+	if (cur->fd == fd)
+	{
+		before->next = cur->next;
+		del_list(cur->head);
+		free(cur);
+	}
+}
+
 int			get_next_line(const int fd, char **line)
 {
 	static t_lists	*lists = NULL;
@@ -99,11 +109,11 @@ int			get_next_line(const int fd, char **line)
 	int				bufsize;
 	char			*str;
 
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || line == NULL)
 		RETRUN_ERROR(-1);
-	cur = ft_get_curx(&lists, fd, 0);
+	cur = ft_get_curx(&lists, fd);
 	if (cur->nth == 0)
-		bufsize = ft_read_all(cur->fd, &str, 0, 0);
+		bufsize = ft_read_all(cur->fd, &str);
 	else
 		bufsize = 0;
 	if (bufsize)
@@ -113,6 +123,7 @@ int			get_next_line(const int fd, char **line)
 	}
 	if (cur->nth >= ft_lstcount(cur->head))
 	{
+		del_fd(lists, fd);
 		*line = ft_strdup("");
 		return (0);
 	}

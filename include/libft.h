@@ -126,6 +126,7 @@ int					ft_isonly_digit(const char *str);
 int					ft_digitcount(int nb);
 
 int					ft_count_strch(char *s, char c);
+int					ft_read_all(const int fd, char **str);
 int					get_next_line(const int fd, char **line);
 
 void				graph_show(t_graph *pg);

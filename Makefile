@@ -26,7 +26,8 @@ OBJECTS					=	ft_atoi.o ft_atoll.o\
 							ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o\
 							ft_sqrt.o ft_iterative_power.o ft_fibonacci.o ft_list_push_back.o\
 							ft_list_size.o ft_lstaddback.o ft_lstcount.o ft_lstnthdata.o\
-							get_next_line.o ft_realloc.o ft_exit_error.o\
+							get_next_line.o ft_read_all.o\
+							ft_realloc.o ft_exit_error.o\
 							ft_isint.o ft_isonly_digit.o ft_digitcount.o\
 							ft_count_strch.o ft_destroy_strsplit.o\
 							stack.o stack2.o\
@@ -118,6 +119,7 @@ ft_lstaddback.o			:	$(SRC)ft_lstaddback.c $(ICL)libft.h
 ft_lstcount.o			:	$(SRC)ft_lstcount.c $(ICL)libft.h
 ft_lstnthdata.o			:	$(SRC)ft_lstnthdata.c $(ICL)libft.h
 get_next_line.o			:	$(SRC)get_next_line.c $(ICL)libft.h
+ft_read_all.o			:	$(SRC)ft_read_all.c $(ICL)libft.h
 ft_realloc.o			:	$(SRC)ft_realloc.c $(ICL)libft.h
 ft_exit_error.o			:	$(SRC)ft_exit_error.c $(ICL)libft.h
 ft_atoll.o				:	$(SRC)ft_atoll.c $(ICL)libft.h

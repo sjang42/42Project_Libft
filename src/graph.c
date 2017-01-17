@@ -65,6 +65,7 @@ void			graph_destroy(t_graph **pg)
 		free(((*pg)->grid)[i]);
 		i++;
 	}
+	free((*pg)->grid);
 	free(*pg);
 	*pg = NULL;
 }
