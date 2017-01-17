@@ -22,14 +22,14 @@ int			ft_read_all(const int fd, char **str)
 	ft_bzero(arr, 100);
 	size = 0;
 	sizeall = 0;
-	*str = (char*)malloc(sizeof(char) * 1);
 	while ((size = read(fd, arr, 100)) != 0)
 	{
 		if (size == -1)
 			RETRUN_ERROR(-1);
 		temp = (char*)malloc(sizeof(char) * (sizeall + 1));
 		ft_memcpy(temp, *str, sizeall);
-		free(*str);
+		if (sizeall)
+			free(*str);
 		*str = (char*)malloc(sizeof(char) * (sizeall + size + 1));
 		ft_memcpy(*str, temp, sizeall);
 		ft_memcpy(*str + sizeall, arr, size);

@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-void		ft_store_str(t_list *head, char *str)
+static void			ft_store_str(t_list *head, char *str)
 {
 	size_t	stapos;
 	size_t	endpos;
@@ -39,7 +39,7 @@ void		ft_store_str(t_list *head, char *str)
 	}
 }
 
-t_lists		*ft_get_curx(t_lists **lists, const int fd)
+static t_lists		*ft_get_curx(t_lists **lists, const int fd)
 {
 	t_lists *cur;
 
@@ -67,25 +67,12 @@ t_lists		*ft_get_curx(t_lists **lists, const int fd)
 	return (cur);
 }
 
-void		del_list(t_list *head)
+static void			del_fd(t_lists *lst, int fd)
 {
-	t_list *cur;
-	t_list *tmp;
-
-	cur = head;
-	while (cur->next)
-	{
-		tmp = cur->next;
-		free(cur);
-		cur = tmp;
-	}
-	free(cur);
-}
-
-void		del_fd(t_lists *lst, int fd)
-{
-	t_lists *cur;
-	t_lists *before;
+	t_lists		*cur;
+	t_lists		*before;
+	t_list		*cur_list;
+	t_list		*tmp;
 
 	cur = lst;
 	before = cur;
@@ -97,12 +84,33 @@ void		del_fd(t_lists *lst, int fd)
 	if (cur->fd == fd)
 	{
 		before->next = cur->next;
-		del_list(cur->head);
+		cur_list = cur->head;
+		while (cur_list->next)
+		{
+			tmp = cur_list->next;
+			free(cur_list);
+			cur_list = tmp;
+		}
+		free(cur_list);
 		free(cur);
 	}
 }
 
-int			get_next_line(const int fd, char **line)
+static int			deal_bufsize(
+					int bufsize, t_lists *lists,
+					t_lists *cur, char *str)
+{
+	if (bufsize == -1)
+		del_fd(lists, cur->fd);
+	if (bufsize)
+	{
+		ft_store_str(cur->head, str);
+		free(str);
+	}
+	return (bufsize);
+}
+
+int					get_next_line(const int fd, char **line)
 {
 	static t_lists	*lists = NULL;
 	t_lists			*cur;
@@ -112,19 +120,16 @@ int			get_next_line(const int fd, char **line)
 	if (fd < 0 || line == NULL)
 		RETRUN_ERROR(-1);
 	cur = ft_get_curx(&lists, fd);
+	bufsize = 0;
 	if (cur->nth == 0)
 		bufsize = ft_read_all(cur->fd, &str);
-	else
-		bufsize = 0;
 	if (bufsize)
-	{
-		ft_store_str(cur->head, str);
-		free(str);
-	}
+		deal_bufsize(bufsize, lists, cur, str);
+	if (bufsize == -1)
+		return (-1);
 	if (cur->nth >= ft_lstcount(cur->head))
 	{
 		del_fd(lists, fd);
-		*line = ft_strdup("");
 		return (0);
 	}
 	*line = (char*)ft_lstnthdata(cur->head, (cur->nth)++);
