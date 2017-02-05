@@ -31,7 +31,8 @@ OBJECTS					=	ft_atoi.o ft_atoll.o\
 							ft_isint.o ft_isonly_digit.o ft_digitcount.o\
 							ft_count_strch.o ft_destroy_strsplit.o\
 							stack.o stack2.o\
-							graph.o graph_show.o
+							graph.o graph_show.o\
+							ft_print_memory.o
 							
 SRC						=	./src/
 ICL						=	./include/

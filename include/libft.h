@@ -131,4 +131,6 @@ int					get_next_line(const int fd, char **line);
 
 void				graph_show(t_graph *pg);
 
+void				ft_print_memory(const void *addr, size_t size);
+
 #endif
