@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdio.h>//
 
 static int	ft_countbeg(char const *s, int *len)
 {
@@ -37,6 +38,8 @@ static int	ft_countend(char const *s, int *len)
 			endpos = i;
 		i++;
 	}
+	printf("i : %d\n", i);
+	printf("endpos : %d\n", endpos);
 	countend = (i - 1) - endpos;
 	*len = i;
 	return (countend);
@@ -54,8 +57,9 @@ char		*ft_strtrim(char const *s)
 		return (NULL);
 	countbeg = ft_countbeg(s, &len);
 	countend = ft_countend(s, &len);
+	printf("len : %d\n", len);
 	if (countbeg == len - 1)
-		totallen = 0;
+		totallen = len;
 	else
 		totallen = len - countbeg - countend;
 	fresh = (char*)malloc(sizeof(char) * (totallen + 1));
