@@ -13,7 +13,7 @@
 TARGET					=	libft.a
 OBJECTS					=	ft_atoi.o ft_atoll.o\
 							ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
-							ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd.o ft_lstdel.o\
+							ft_isdigit.o ft_isprint.o ft_itoa.o ft_itoa_base.o ft_lstadd.o ft_lstdel.o\
 							ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_memalloc.o\
 							ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o\
 							ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o ft_putendl.o\
@@ -32,8 +32,12 @@ OBJECTS					=	ft_atoi.o ft_atoll.o\
 							ft_count_strch.o ft_destroy_strsplit.o\
 							stack.o stack2.o\
 							graph.o graph_show.o\
-							ft_print_memory.o
-							
+							ft_print_memory.o\
+							\
+							ft_strdel_repeat.o\
+							ft_endian_convert.o\
+							ft_exit_error_free.o
+
 SRC						=	./src/
 ICL						=	./include/
 CC						=	gcc
@@ -61,6 +65,7 @@ ft_isascii.o			:	$(SRC)ft_isascii.c $(ICL)libft.h
 ft_isdigit.o			:	$(SRC)ft_isdigit.c $(ICL)libft.h
 ft_isprint.o			:	$(SRC)ft_isprint.c $(ICL)libft.h
 ft_itoa.o				:	$(SRC)ft_itoa.c $(ICL)libft.h
+ft_itoa_base.o			:	$(SRC)ft_itoa_base.c $(ICL)libft.h
 ft_lstadd.o				:	$(SRC)ft_lstadd.c $(ICL)libft.h
 ft_lstdel.o				:	$(SRC)ft_lstdel.c $(ICL)libft.h
 ft_lstdelone.o			:	$(SRC)ft_lstdelone.c $(ICL)libft.h
@@ -133,6 +138,10 @@ graph.o					:	$(SRC)graph.c $(ICL)libft.h $(ICL)graph.h
 graph_show.o			:	$(SRC)graph_show.c $(ICL)libft.h $(ICL)graph.h
 ft_count_strch.o		:	$(SRC)ft_count_strch.c $(ICL)libft.h
 ft_destroy_strsplit.o	:	$(SRC)ft_destroy_strsplit.c $(ICL)libft.h
+
+ft_strdel_repeat.o		:	$(SRC)ft_strdel_repeat.c $(ICL)libft.h
+ft_endian_convert.o		:	$(SRC)ft_endian_convert.c $(ICL)libft.h
+ft_exit_error_free.o	:	$(SRC)ft_exit_error_free.c $(ICL)libft.h
 
 clean :
 	$(RM) $(OBJECTS)

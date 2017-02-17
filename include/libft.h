@@ -77,6 +77,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 char				*ft_itoa(int n);
+char				*ft_itoa_base(int value, int base);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				ft_putchar(char c);
@@ -132,5 +133,9 @@ int					get_next_line(const int fd, char **line);
 void				graph_show(t_graph *pg);
 
 void				ft_print_memory(const void *addr, size_t size);
+
+char				*ft_strdel_repeat(char *dest, char ch);
+int					ft_endian_convert(void *src, size_t size);
+void				ft_exit_error_free(char *error);
 
 #endif
