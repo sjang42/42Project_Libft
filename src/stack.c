@@ -12,51 +12,51 @@
 
 #include "../include/stack.h"
 
-void		ft_stack_init(t_stack *pstack)
+void        ft_stack_init(t_stack *pstack)
 {
-	pstack->head = NULL;
-	pstack->tail = NULL;
+    pstack->head = NULL;
+    pstack->tail = NULL;
 }
 
-t_stack		*ft_stack_new(void)
+t_stack     *ft_stack_new(void)
 {
-	t_stack *newst;
+    t_stack *newst;
 
-	newst = (t_stack*)malloc(sizeof(t_stack));
-	ft_stack_init(newst);
-	return (newst);
+    newst = (t_stack*)malloc(sizeof(t_stack));
+    ft_stack_init(newst);
+    return (newst);
 }
 
-int			ft_stack_isempty(t_stack *pstack)
+int         ft_stack_isempty(t_stack *pstack)
 {
-	if (pstack->head == NULL)
-		return (TRUE);
-	else
-		return (FALSE);
+    if (pstack->head == NULL)
+        return (TRUE);
+    else
+        return (FALSE);
 }
 
-void		ft_stack_push(t_stack *pstack, t_sdata data)
+void        ft_stack_push(t_stack *pstack, t_sdata data)
 {
-	t_stack_node *newnode;
+    t_stack_node *newnode;
 
-	newnode = (t_stack_node*)malloc(sizeof(t_stack_node));
-	newnode->data = data;
-	newnode->next = pstack->head;
-	if (!pstack->head)
-		pstack->tail = newnode;
-	pstack->head = newnode;
+    newnode = (t_stack_node*)malloc(sizeof(t_stack_node));
+    newnode->data = data;
+    newnode->next = pstack->head;
+    if (!pstack->head)
+        pstack->tail = newnode;
+    pstack->head = newnode;
 }
 
-t_sdata		ft_stack_pop(t_stack *pstack)
+t_sdata     ft_stack_pop(t_stack *pstack)
 {
-	t_sdata			ret;
-	t_stack_node	*tempnode;
+    t_sdata         ret;
+    t_stack_node    *tempnode;
 
-	if (ft_stack_isempty(pstack))
-		return (0);
-	ret = pstack->head->data;
-	tempnode = pstack->head;
-	pstack->head = pstack->head->next;
-	free(tempnode);
-	return (ret);
+    if (ft_stack_isempty(pstack))
+        return (0);
+    ret = pstack->head->data;
+    tempnode = pstack->head;
+    pstack->head = pstack->head->next;
+    free(tempnode);
+    return (ret);
 }

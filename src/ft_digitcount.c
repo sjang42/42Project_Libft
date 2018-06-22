@@ -12,22 +12,22 @@
 
 #include <libft.h>
 
-int		ft_digitcount(int nb)
+int     ft_digitcount(int nb)
 {
-	int			count;
-	long long	n;
+    int         count;
+    long long   n;
 
-	n = (long long)nb;
-	count = 1;
-	if (n < 0)
-	{
-		count++;
-		n *= -1;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
+    n = (long long)nb;
+    count = 1;
+    if (n < 0)
+    {
+        count++;
+        n *= -1;
+    }
+    while (n > 0)
+    {
+        n /= 10;
+        count++;
+    }
+    return (count);
 }

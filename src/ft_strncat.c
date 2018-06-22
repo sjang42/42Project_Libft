@@ -12,20 +12,20 @@
 
 #include <libft.h>
 
-char	*ft_strncat(char *dest, const char *src, int nb)
+char    *ft_strncat(char *dest, const char *src, int nb)
 {
-	int i;
-	int j;
+    int i;
+    int j;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != 0)
-		i++;
-	while (src[j] != 0 && j < nb)
-	{
-		dest[i + j] = ((char*)src)[j];
-		j++;
-	}
-	dest[i + j] = 0;
-	return (dest);
+    i = 0;
+    j = 0;
+    while (dest[i] != 0)
+        i++;
+    while (src[j] != 0 && j < nb)
+    {
+        dest[i + j] = ((char*)src)[j];
+        j++;
+    }
+    dest[i + j] = 0;
+    return (dest);
 }

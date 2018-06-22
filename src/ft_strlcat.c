@@ -12,33 +12,33 @@
 
 #include <libft.h>
 
-static int	ft_strlen_copy(const char *str)
+static int  ft_strlen_copy(const char *str)
 {
-	int count;
+    int count;
 
-	count = 0;
-	while (str[count] != 0)
-		count++;
-	return (count);
+    count = 0;
+    while (str[count] != 0)
+        count++;
+    return (count);
 }
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+size_t      ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t sizedst;
+    size_t i;
+    size_t sizedst;
 
-	i = 0;
-	sizedst = 0;
-	while (dst[i] != 0 && i < size)
-		i++;
-	if (dst[i] != 0)
-		return ((size_t)ft_strlen_copy(src) + i);
-	sizedst = i;
-	while (i < size - 1)
-	{
-		dst[i] = src[i - sizedst];
-		i++;
-	}
-	dst[i] = 0;
-	return ((size_t)ft_strlen_copy(src) + sizedst);
+    i = 0;
+    sizedst = 0;
+    while (dst[i] != 0 && i < size)
+        i++;
+    if (dst[i] != 0)
+        return ((size_t)ft_strlen_copy(src) + i);
+    sizedst = i;
+    while (i < size - 1)
+    {
+        dst[i] = src[i - sizedst];
+        i++;
+    }
+    dst[i] = 0;
+    return ((size_t)ft_strlen_copy(src) + sizedst);
 }

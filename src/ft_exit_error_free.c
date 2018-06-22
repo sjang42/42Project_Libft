@@ -12,15 +12,15 @@
 
 #include <libft.h>
 
-void	ft_exit_error_free(char *error)
+void    ft_exit_error_free(char *error)
 {
-	write(2, "Error", 5);
-	if (error)
-	{
-		write(2, " : ", 3);
-		write(2, error, ft_strlen(error));
-	}
-	write(2, "\n", 1);
-	free(error);
-	exit(-1);
+    write(2, "Error", 5);
+    if (error)
+    {
+        write(2, " : ", 3);
+        write(2, error, ft_strlen(error));
+    }
+    write(2, "\n", 1);
+    free(error);
+    exit(-1);
 }

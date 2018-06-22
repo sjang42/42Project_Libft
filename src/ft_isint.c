@@ -12,10 +12,10 @@
 
 #include <libft.h>
 
-int			ft_isint(long long n)
+int         ft_isint(long long n)
 {
-	if (n >= -2147483648 && n <= 2147483647)
-		return (1);
-	else
-		return (0);
+    if (n >= -2147483648 && n <= 2147483647)
+        return (1);
+    else
+        return (0);
 }

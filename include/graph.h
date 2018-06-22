@@ -15,17 +15,17 @@
 
 # include <stdlib.h>
 
-typedef struct	s_graph
+typedef struct  s_graph
 {
-	int	num_v;
-	int	num_e;
-	int	**grid;
-}				t_graph;
+    int num_v;
+    int num_e;
+    int **grid;
+}               t_graph;
 
-void			graph_init(t_graph *pg, int nv);
-t_graph			*graph_new(int nv);
+void            graph_init(t_graph *pg, int nv);
+t_graph         *graph_new(int nv);
 
-void			graph_destroy(t_graph **pg);
-void			graph_add_edge(t_graph *pg, int from, int to);
+void            graph_destroy(t_graph **pg);
+void            graph_add_edge(t_graph *pg, int from, int to);
 
 #endif

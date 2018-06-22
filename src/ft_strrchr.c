@@ -12,29 +12,29 @@
 
 #include <libft.h>
 
-char	*ft_strrchr(const char *s, int c)
+char    *ft_strrchr(const char *s, int c)
 {
-	int i;
-	int flag;
-	int position;
+    int i;
+    int flag;
+    int position;
 
-	i = 0;
-	flag = 0;
-	while (1)
-	{
-		if (s[i] == c)
-		{
-			position = i;
-			if (flag == 0)
-				flag = 1;
-		}
-		if (s[i] == 0)
-		{
-			if (flag == 1)
-				return ((char*)s + position);
-			else
-				return (NULL);
-		}
-		i++;
-	}
+    i = 0;
+    flag = 0;
+    while (1)
+    {
+        if (s[i] == c)
+        {
+            position = i;
+            if (flag == 0)
+                flag = 1;
+        }
+        if (s[i] == 0)
+        {
+            if (flag == 1)
+                return ((char*)s + position);
+            else
+                return (NULL);
+        }
+        i++;
+    }
 }

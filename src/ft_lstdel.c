@@ -12,21 +12,21 @@
 
 #include <libft.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+void    ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 {
-	t_list *temp;
+    t_list *temp;
 
-	if (!alst || !(*alst) || !del)
-		return ;
-	del((*alst)->content, (*alst)->content_size);
-	while ((*alst)->next != NULL)
-	{
-		temp = *alst;
-		*alst = (*alst)->next;
-		free(temp);
-		temp = NULL;
-		del((*alst)->content, (*alst)->content_size);
-	}
-	free(*alst);
-	*alst = NULL;
+    if (!alst || !(*alst) || !del)
+        return ;
+    del((*alst)->content, (*alst)->content_size);
+    while ((*alst)->next != NULL)
+    {
+        temp = *alst;
+        *alst = (*alst)->next;
+        free(temp);
+        temp = NULL;
+        del((*alst)->content, (*alst)->content_size);
+    }
+    free(*alst);
+    *alst = NULL;
 }

@@ -12,19 +12,19 @@
 
 #include <libft.h>
 
-int		ft_list_size(t_list *begin_list)
+int     ft_list_size(t_list *begin_list)
 {
-	int		count;
-	t_list	*cur;
+    int     count;
+    t_list  *cur;
 
-	cur = begin_list;
-	if (cur == 0)
-		return (0);
-	count = 1;
-	while (cur->next != 0)
-	{
-		cur = cur->next;
-		count++;
-	}
-	return (count);
+    cur = begin_list;
+    if (cur == 0)
+        return (0);
+    count = 1;
+    while (cur->next != 0)
+    {
+        cur = cur->next;
+        count++;
+    }
+    return (count);
 }

@@ -12,17 +12,17 @@
 
 #include <libft.h>
 
-void	*ft_lstnthdata(t_list *head, int nth)
+void    *ft_lstnthdata(t_list *head, int nth)
 {
-	t_list *cur;
+    t_list *cur;
 
-	cur = head;
-	while (nth >= 0 && cur != NULL)
-	{
-		cur = cur->next;
-		nth--;
-	}
-	if (cur == NULL)
-		return (NULL);
-	return (cur->content);
+    cur = head;
+    while (nth >= 0 && cur != NULL)
+    {
+        cur = cur->next;
+        nth--;
+    }
+    if (cur == NULL)
+        return (NULL);
+    return (cur->content);
 }

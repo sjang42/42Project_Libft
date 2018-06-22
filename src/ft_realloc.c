@@ -12,15 +12,15 @@
 
 #include <libft.h>
 
-void			*ft_realloc(void *some, size_t size_cur, size_t size_fut)
+void            *ft_realloc(void *some, size_t size_cur, size_t size_fut)
 {
-	void *new;
+    void *new;
 
-	new = malloc(size_fut);
-	if (size_cur <= size_fut)
-		ft_memcpy(new, some, size_cur);
-	else
-		ft_memcpy(new, some, size_fut);
-	free(some);
-	return (new);
+    new = malloc(size_fut);
+    if (size_cur <= size_fut)
+        ft_memcpy(new, some, size_cur);
+    else
+        ft_memcpy(new, some, size_fut);
+    free(some);
+    return (new);
 }

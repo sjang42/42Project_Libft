@@ -12,16 +12,16 @@
 
 #include <libft.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char    *ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *substring;
+    char *substring;
 
-	if (s == NULL)
-		return (NULL);
-	substring = (char*)malloc(sizeof(char) * (len + 1));
-	if (substring == NULL)
-		return ((char*)NULL);
-	ft_memcpy(substring, s + start, len);
-	substring[len] = 0;
-	return (substring);
+    if (s == NULL)
+        return (NULL);
+    substring = (char*)malloc(sizeof(char) * (len + 1));
+    if (substring == NULL)
+        return ((char*)NULL);
+    ft_memcpy(substring, s + start, len);
+    substring[len] = 0;
+    return (substring);
 }

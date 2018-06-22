@@ -12,12 +12,12 @@
 
 #include <libft.h>
 
-void	ft_lstaddback(t_list **alst, t_list *newlst)
+void    ft_lstaddback(t_list **alst, t_list *newlst)
 {
-	t_list *cur;
+    t_list *cur;
 
-	cur = *alst;
-	while (cur->next != 0)
-		cur = cur->next;
-	cur->next = newlst;
+    cur = *alst;
+    while (cur->next != 0)
+        cur = cur->next;
+    cur->next = newlst;
 }

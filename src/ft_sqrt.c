@@ -12,22 +12,22 @@
 
 #include <libft.h>
 
-int		ft_sqrt(int nb)
+int     ft_sqrt(int nb)
 {
-	int i;
-	int match;
+    int i;
+    int match;
 
-	i = 0;
-	match = 0;
-	while (i < nb && match != 1)
-	{
-		if (ft_iterative_power(i, 2) == nb)
-			match++;
-		else
-			i++;
-	}
-	if (match == 0)
-		return (0);
-	else
-		return (i);
+    i = 0;
+    match = 0;
+    while (i < nb && match != 1)
+    {
+        if (ft_iterative_power(i, 2) == nb)
+            match++;
+        else
+            i++;
+    }
+    if (match == 0)
+        return (0);
+    else
+        return (i);
 }

@@ -12,37 +12,37 @@
 
 #include <libft.h>
 
-static int	get_positional_int(int nb)
+static int  get_positional_int(int nb)
 {
-	int positional;
-	int temp;
+    int positional;
+    int temp;
 
-	positional = 1;
-	temp = nb;
-	while (temp >= 10 || temp <= -10)
-	{
-		temp /= 10;
-		positional *= 10;
-	}
-	return (positional);
+    positional = 1;
+    temp = nb;
+    while (temp >= 10 || temp <= -10)
+    {
+        temp /= 10;
+        positional *= 10;
+    }
+    return (positional);
 }
 
-void		ft_putnbr_fd(int nb, int fd)
+void        ft_putnbr_fd(int nb, int fd)
 {
-	char	digit;
-	int		positional;
+    char    digit;
+    int     positional;
 
-	positional = get_positional_int(nb);
-	if (nb < 0)
-	{
-		write(fd, "-", 1);
-		positional *= -1;
-	}
-	while (positional != 0)
-	{
-		digit = nb / positional + '0';
-		write(fd, &digit, 1);
-		nb %= positional;
-		positional /= 10;
-	}
+    positional = get_positional_int(nb);
+    if (nb < 0)
+    {
+        write(fd, "-", 1);
+        positional *= -1;
+    }
+    while (positional != 0)
+    {
+        digit = nb / positional + '0';
+        write(fd, &digit, 1);
+        nb %= positional;
+        positional /= 10;
+    }
 }

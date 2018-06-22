@@ -12,15 +12,15 @@
 
 #include <libft.h>
 
-void		ft_destroy_strsplit(char **str)
+void        ft_destroy_strsplit(char **str)
 {
-	int i;
+    int i;
 
-	if (!str)
-		return ;
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str[i]);
-	free(str);
+    if (!str)
+        return ;
+    i = 0;
+    while (str[i])
+        free(str[i++]);
+    free(str[i]);
+    free(str);
 }

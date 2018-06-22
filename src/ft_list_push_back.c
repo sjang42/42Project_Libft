@@ -12,13 +12,13 @@
 
 #include <libft.h>
 
-void	ft_list_push_back(t_list **begin_list,
-	void const *content, size_t content_size)
+void    ft_list_push_back(t_list **begin_list,
+    void const *content, size_t content_size)
 {
-	t_list *cur;
+    t_list *cur;
 
-	cur = *begin_list;
-	while (cur->next != 0)
-		cur = cur->next;
-	cur->next = ft_lstnew(content, content_size);
+    cur = *begin_list;
+    while (cur->next != 0)
+        cur = cur->next;
+    cur->next = ft_lstnew(content, content_size);
 }

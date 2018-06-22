@@ -12,22 +12,22 @@
 
 #include <libft.h>
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char    *ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	int		stopflag;
+    size_t  i;
+    int     stopflag;
 
-	i = 0;
-	stopflag = 0;
-	while (i < n)
-	{
-		if (src[i] == 0)
-			stopflag = 1;
-		if (stopflag == 0)
-			dest[i] = src[i];
-		else
-			dest[i] = 0;
-		i++;
-	}
-	return (dest);
+    i = 0;
+    stopflag = 0;
+    while (i < n)
+    {
+        if (src[i] == 0)
+            stopflag = 1;
+        if (stopflag == 0)
+            dest[i] = src[i];
+        else
+            dest[i] = 0;
+        i++;
+    }
+    return (dest);
 }
